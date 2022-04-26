@@ -1,6 +1,10 @@
 const gameBoard = document.querySelector('.game-board')
 const BLOCK_WIDTH = 100;
 const BLOCK_HEIGHT = 20;
+const BOARD_WIDTH = 560;
+
+const playerStart = [230, 10];
+let playerCurrentPosition = playerStart;
 
 // create block
 class Block {
@@ -31,8 +35,8 @@ const blocks = [
   new Block(450, 210),
 ]
 
-// Add my block
-function addBlocks() {
+// Draw my block
+function drawBlocks() {
   for (let index = 0; index < blocks.length; index++) {
     const block = document.createElement('div');
     block.classList.add('block');
@@ -42,8 +46,40 @@ function addBlocks() {
   }
 }
 
-addBlocks();
+drawBlocks();
 
 // Add player
 const player = document.createElement('div');
-player.classList.add('player')
+player.classList.add('player');
+drawPlayer();
+gameBoard.appendChild(player);
+
+// Draw player
+function drawPlayer() {
+  player.style.left = `${playerCurrentPosition[0]}px`;
+  player.style.bottom = `${playerCurrentPosition[1]}px`;
+}
+
+// Move player
+function movePlayer(event) {
+  switch (event.key) {
+    case 'ArrowLeft':
+      if (playerCurrentPosition[0] > 0) {
+        playerCurrentPosition[0] -= 10;
+        drawPlayer();
+      }
+      break;
+    case 'ArrowRight':
+      if (playerCurrentPosition[0] < BOARD_WIDTH - BLOCK_WIDTH ) {
+        playerCurrentPosition[0] += 10;
+        drawPlayer();
+      }
+      break;
+  }
+}
+
+document.addEventListener('keydown', movePlayer)
+
+// Draw ball
+const ball = document.createElement('div');
+ball.classList.add('ball');

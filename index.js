@@ -1,10 +1,16 @@
+/* Variables */
 const gameBoard = document.querySelector('.game-board')
 const BLOCK_WIDTH = 100;
 const BLOCK_HEIGHT = 20;
 const BOARD_WIDTH = 560;
 
+// Player starting position
 const playerStart = [230, 10];
 let playerCurrentPosition = playerStart;
+
+// Ball starting position
+const ballStart = [270, 32];
+let ballCurrentPosition = ballStart;
 
 // create block
 class Block {
@@ -80,6 +86,9 @@ function movePlayer(event) {
 
 document.addEventListener('keydown', movePlayer)
 
-// Draw ball
+// Add ball
 const ball = document.createElement('div');
 ball.classList.add('ball');
+ball.style.left = `${ballCurrentPosition[0]}px`;
+ball.style.bottom = `${ballCurrentPosition[1]}px`;
+gameBoard.appendChild(ball);

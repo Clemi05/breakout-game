@@ -13,15 +13,23 @@
 }
 
 .block {
+  position: absolute;
   width: 100px;
   height: 20px;
   background-color: #FEB139;
+}
+
+.ball {
   position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #F55353;
 }
 
 .player {
+  position: absolute;
   width: 100px;
   height: 20px;
   background-color: #143F6B;
-  position: absolute;
 }

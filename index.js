@@ -92,3 +92,5 @@ ball.classList.add('ball');
 ball.style.left = `${ballCurrentPosition[0]}px`;
 ball.style.bottom = `${ballCurrentPosition[1]}px`;
 gameBoard.appendChild(ball);
+
+// Restart at 2:02:38

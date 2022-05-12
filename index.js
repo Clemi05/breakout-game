@@ -97,3 +97,11 @@ const ball = document.createElement('div');
 ball.classList.add('ball');
 drawBall();
 gameBoard.appendChild(ball);
+
+
+// Move ball
+function moveBall() {
+// TODO
+}
+
+// Restart at 2:03:00

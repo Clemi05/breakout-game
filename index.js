@@ -66,6 +66,12 @@ function drawPlayer() {
   player.style.bottom = `${playerCurrentPosition[1]}px`;
 }
 
+// Draw ball
+function drawBall() {
+  ball.style.left = `${ballCurrentPosition[0]}px`;
+  ball.style.bottom = `${ballCurrentPosition[1]}px`;
+}
+
 // Move player
 function movePlayer(event) {
   switch (event.key) {
@@ -89,8 +95,5 @@ document.addEventListener('keydown', movePlayer)
 // Add ball
 const ball = document.createElement('div');
 ball.classList.add('ball');
-ball.style.left = `${ballCurrentPosition[0]}px`;
-ball.style.bottom = `${ballCurrentPosition[1]}px`;
+drawBall();
 gameBoard.appendChild(ball);
-
-// Restart at 2:02:38

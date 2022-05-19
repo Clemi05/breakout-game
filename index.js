@@ -102,6 +102,8 @@ gameBoard.appendChild(ball);
 // Move ball
 function moveBall() {
   ballCurrentPosition[0] += 2;
-  ballCurrentPosition[1] += 1;
+  ballCurrentPosition[1] += 2;
   drawBall();
 }
+
+setInterval(moveBall, 30);

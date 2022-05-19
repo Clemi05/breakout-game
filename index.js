@@ -101,7 +101,7 @@ gameBoard.appendChild(ball);
 
 // Move ball
 function moveBall() {
-// TODO
+  ballCurrentPosition[0] += 2;
+  ballCurrentPosition[1] += 1;
+  drawBall();
 }
-
-// Restart at 2:03:00

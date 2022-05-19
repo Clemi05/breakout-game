@@ -119,7 +119,7 @@ function checkForCollisions() {
 }
 
 function changeDirection() {
-
+  // TODO
 }
 
 // Replay at 2:07:00

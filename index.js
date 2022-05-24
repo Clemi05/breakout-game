@@ -5,6 +5,8 @@ const BLOCK_HEIGHT = 20;
 const BOARD_WIDTH = 560;
 const ballDiameter = 20;
 let timerId;
+let xDirection = 2;
+let yDirection = 2;
 
 // Player starting position
 const playerStart = [230, 10];
@@ -103,9 +105,10 @@ gameBoard.appendChild(ball);
 
 // Move ball
 function moveBall() {
-  ballCurrentPosition[0] += 2;
-  ballCurrentPosition[1] += 2;
+  ballCurrentPosition[0] += xDirection;
+  ballCurrentPosition[1] += yDirection;
   drawBall();
+  checkForCollisions();
 }
 
 timerId = setInterval(moveBall, 30);
@@ -119,7 +122,10 @@ function checkForCollisions() {
 }
 
 function changeDirection() {
-  // TODO
+  if (xDirection === 2 && yDirection == 2) {
+    yDirection = -2;
+    return;
+  }
 }
 
 // Replay at 2:07:00

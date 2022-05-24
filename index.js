@@ -3,7 +3,8 @@ const gameBoard = document.querySelector('.game-board')
 const BLOCK_WIDTH = 100;
 const BLOCK_HEIGHT = 20;
 const BOARD_WIDTH = 560;
-const ballDiameter = 20;
+const BOARD_HEIGHT = 300;
+const BALL_DIAMETER = 20;
 let timerId;
 let xDirection = 2;
 let yDirection = 2;
@@ -116,16 +117,26 @@ timerId = setInterval(moveBall, 30);
 // Check for collisions
 function checkForCollisions() {
   // check for wall collisions
-  if (ballCurrentPosition[0] >= (BOARD_WIDTH - ballDiameter)) {
+  if (ballCurrentPosition[0] >= (BOARD_WIDTH - BALL_DIAMETER) || ballCurrentPosition[1] >= (BOARD_HEIGHT - BALL_DIAMETER)) {
     changeDirection();
   }
 }
 
 function changeDirection() {
-  if (xDirection === 2 && yDirection == 2) {
+  if (xDirection === 2 && yDirection === 2) {
     yDirection = -2;
     return;
+  } else if (xDirection === 2 && yDirection === -2) {
+    xDirection = -2;
+    return;
+  } else if (xDirection === -2 && yDirection === -2) {
+    yDirection = 2;
+    return;
+  } else if (xDirection === -2 && yDirection === 2) {
+    xDirection = 2;
+    return;
   }
+
 }
 
 // Replay at 2:07:00

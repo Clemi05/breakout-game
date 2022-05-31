@@ -1,13 +1,13 @@
 /* Variables */
 const gameBoard = document.querySelector('.game-board');
-const scoreDisplay = document.querySelector('.score');
+const scoreDisplay = document.querySelector('#score');
 const BLOCK_WIDTH = 100;
 const BLOCK_HEIGHT = 20;
 const BOARD_WIDTH = 560;
 const BOARD_HEIGHT = 300;
 const BALL_DIAMETER = 20;
 let timerId;
-let xDirection = 2;
+let xDirection = -2;
 let yDirection = 2;
 
 // Player starting position
@@ -129,7 +129,8 @@ function checkForCollisions() {
   // check for game over
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
-
+    scoreDisplay.innerHTML = "You lose!!";
+    document.removeEventListener('keydown', movePlayer);
   }
 }
 

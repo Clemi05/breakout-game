@@ -1,5 +1,6 @@
 /* Variables */
-const gameBoard = document.querySelector('.game-board')
+const gameBoard = document.querySelector('.game-board');
+const scoreDisplay = document.querySelector('.score');
 const BLOCK_WIDTH = 100;
 const BLOCK_HEIGHT = 20;
 const BOARD_WIDTH = 560;
@@ -117,8 +118,18 @@ timerId = setInterval(moveBall, 30);
 // Check for collisions
 function checkForCollisions() {
   // check for wall collisions
-  if (ballCurrentPosition[0] >= (BOARD_WIDTH - BALL_DIAMETER) || ballCurrentPosition[1] >= (BOARD_HEIGHT - BALL_DIAMETER)) {
+  if (
+      ballCurrentPosition[0] >= (BOARD_WIDTH - BALL_DIAMETER) ||
+      ballCurrentPosition[1] >= (BOARD_HEIGHT - BALL_DIAMETER) ||
+      ballCurrentPosition[0] <= 0
+      ) {
     changeDirection();
+  }
+
+  // check for game over
+  if (ballCurrentPosition[1] <= 0) {
+    clearInterval(timerId);
+
   }
 }
 

@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+#score {
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
 .game-board {
   position: absolute;
   width: 560px;

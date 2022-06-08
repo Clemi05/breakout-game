@@ -118,11 +118,14 @@ timerId = setInterval(moveBall, 30);
 // Check for collisions
 function checkForCollisions() {
   // check for block collisions
-  for(let i = 0; i < block.length; i++) {
+  for(let i = 0; i < blocks.length; i++) {
     if (
       (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
       ((ballCurrentPosition[1] + BALL_DIAMETER) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1])
-    )
+    ) {
+      const allBlocks = Array.from(document.querySelectorAll('.block'));
+      console.log(allBlocks);
+    }
   }
 
 

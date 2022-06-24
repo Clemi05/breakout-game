@@ -151,6 +151,7 @@ function checkForCollisions() {
   }
 }
 
+// Check for block collisions
 function changeDirection() {
   if (xDirection === 2 && yDirection === 2) {
     yDirection = -2;

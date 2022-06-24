@@ -134,7 +134,7 @@ function checkForCollisions() {
   }
 
 
-  // check for wall collisions
+  // Check for wall collisions
   if (
       ballCurrentPosition[0] >= (BOARD_WIDTH - BALL_DIAMETER) ||
       ballCurrentPosition[1] >= (BOARD_HEIGHT - BALL_DIAMETER) ||
@@ -143,7 +143,7 @@ function checkForCollisions() {
     changeDirection();
   }
 
-  // check for game over
+  // Check for game over
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
     scoreDisplay.innerHTML = "You lose!!";

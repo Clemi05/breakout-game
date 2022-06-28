@@ -181,5 +181,3 @@ function changeDirection() {
   }
 
 }
-
-// Replay at 2:25:15

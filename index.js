@@ -118,7 +118,7 @@ timerId = setInterval(moveBall, 30);
 
 // Check for collisions
 function checkForCollisions() {
-  // check for block collisions
+  // Check for block collisions
   for(let i = 0; i < blocks.length; i++) {
     if (
       (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
@@ -130,6 +130,8 @@ function checkForCollisions() {
       changeDirection();
       score++;
       scoreDisplay.innerHTML = score;
+
+
     }
   }
 
@@ -143,6 +145,14 @@ function checkForCollisions() {
     changeDirection();
   }
 
+  // Check for player collisions
+  if (
+    (ballCurrentPosition[0] > playerCurrentPosition[0] && ballCurrentPosition[0] < playerCurrentPosition[0] + BLOCK_WIDTH) &&
+    (ballCurrentPosition[1] > playerCurrentPosition[1] && ballCurrentPosition[1] < playerCurrentPosition[1] + BLOCK_HEIGHT)
+  ) {
+    changeDirection();
+  }
+
   // Check for game over
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
@@ -151,7 +161,6 @@ function checkForCollisions() {
   }
 }
 
-// Check for block collisions
 function changeDirection() {
   if (xDirection === 2 && yDirection === 2) {
     yDirection = -2;
